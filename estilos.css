@@ -53,17 +53,18 @@ nav a 	{
 				letter-spacing: 0.14em;
 				text-transform: uppercase;
 				color: var(--ink-soft)}
-/* Hero */
+
+/* Sección de presentación */
 .presentacion{ border-bottom: 1px solid var(--line); position: relative; }
 .slogan{
   font-size: .8rem; font-family: "Work Sans", sans-serif; font-weight: 600;
   letter-spacing: .04em; color: var(--sage); text-transform: uppercase;
   padding: 14px 44px 0;
 }
-#presentacion-Slides{ position: relative; }
-.hero-slide{ display:none; grid-template-columns: 1.05fr 1fr; }
-.hero-slide.active{ display:grid; }
-.hero-art{
+#presentacion-slides{ position: relative; }
+.presentación-slides{ display:none; grid-template-columns: 1.05fr 1fr; }
+.presentación-slides.activado{ display:grid; }
+.presentación-visual{
   padding: 48px 40px;
   display:flex; align-items:center; justify-content:center;
   border-right: 1px solid var(--line-soft);
@@ -71,18 +72,18 @@ nav a 	{
     radial-gradient(circle at 30% 30%, rgba(138,106,60,0.06), transparent 60%),
     var(--panel);
 }
-.hero-art svg{ width: min(220px, 100%); height:auto; }
+.presentación-visual svg{ width: min(220px, 100%); height:auto; }
 
 
- /* Hero */
-  .hero{
+ /* Sección de presentación */
+  .presentación{
     display:grid;
     grid-template-columns: 1.05fr 1fr;
     gap: 0;
     border-bottom: 1px solid var(--line);
     position: relative;
   }
-  .hero-art{
+  .presentación-visual{
     padding: 48px 40px;
     display:flex; align-items:center; justify-content:center;
     border-right: 1px solid var(--line-soft);
@@ -90,23 +91,23 @@ nav a 	{
       radial-gradient(circle at 30% 30%, rgba(138,106,60,0.06), transparent 60%),
       var(--panel);
   }
-  .hero-art svg{ width: min(340px, 100%); height:auto; }
-  .hero-copy{
+  .presentación-visual svg{ width: min(340px, 100%); height:auto; }
+  .presentación-descriptiva{
     padding: 48px 44px;
     display:flex; flex-direction:column; justify-content:center;
     gap: 22px;
   }
-  .hero-copy p.eyebrow{
+  .presentación-descriptiva p.eyebrow{
     margin:0; font-size:.78rem; color: var(--sage);
     letter-spacing:.03em;
   }
-  .hero-copy h1{
+  .presentación-descriptiva h1{
     font-size: clamp(1.6rem, 2.4vw, 2.1rem);
     line-height: 1.35;
     font-weight: 500;
     max-width: 15ch;
   }
-  .hero-copy p.desc{ color: var(--ink-soft); max-width: 42ch; line-height:1.6; font-size:.95rem; }
+  .presentación-descriptiva p.desc{ color: var(--ink-soft); max-width: 42ch; line-height:1.6; font-size:.95rem; }
   .dots{
     position:absolute; bottom:16px; left:0; right:0;
     display:flex; justify-content:center; gap:8px;
