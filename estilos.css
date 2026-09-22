@@ -67,28 +67,27 @@ nav a 	{
 				text-transform: uppercase;
 				color: var(--ink-soft)}
 
+
 /* Sección de presentación */
-.presentacion{ border-bottom: 1px solid var(--line); position: relative; }
-.slogan{
-  font-size: .8rem; font-family: "Work Sans", sans-serif; font-weight: 600;
-  letter-spacing: .04em; color: var(--sage); text-transform: uppercase;
-  padding: 14px 44px 0;
-}
-#presentacion-slides{ position: relative; }
-.presentación-slides{ display:none; grid-template-columns: 1.05fr 1fr; }
-.presentación-slides.activado{ display:grid; }
-.presentación-visual{
-  padding: 48px 40px;
-  display:flex; align-items:center; justify-content:center;
-  border-right: 1px solid var(--line-soft);
-  background:
-    radial-gradient(circle at 30% 30%, rgba(138,106,60,0.06), transparent 60%),
-    var(--panel);
-}
-.presentación-visual svg{ width: min(220px, 100%); height:auto; }
 
+  .presentacion{ border-bottom: 1px solid var(--line); position: relative; }
+  .slogan{
+    font-size: .8rem; font-family: "Work Sans", sans-serif; font-weight: 600;
+    letter-spacing: .04em; color: var(--sage); text-transform: uppercase;
+    padding: 14px 44px 0;
+  }
+  #presentacion-slides{ position: relative; }
+  .presentación-slides{ display:none; grid-template-columns: 1.05fr 1fr; }
+  .presentación-slides.activado{ display:grid; }
+  .presentación-visual{
+    padding: 48px 40px;
+    display:flex; align-items:center; justify-content:center;
+    border-right: 1px solid var(--line-soft);
+    background:
+    radial-gradient(circle at 30% 30%, rgba(138,106,60,0.06), transparent 60%),var(--panel);
+  }
+  .presentación-visual svg{ width: min(220px, 100%); height:auto; }
 
- /* Sección de presentación */
   .presentación{
     display:grid;
     grid-template-columns: 1.05fr 1fr;
@@ -128,5 +127,52 @@ nav a 	{
   
   .puntos span{ width:7px; height:7px; border-radius:50%; background: var(--line); }
   .puntos span.active{ background: var(--bronze); }
+
+  /* Sección de colección */
+  
+    .colección{ padding: 40px; border-bottom: 1px solid var(--line); }
+    .colección-header{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 26px; gap: 12px; flex-wrap: wrap; }
+    .colección-header h2{ font-size: 1.3rem; font-weight:500; }
+    .colección-header .hint{ font-size:.82rem; color: var(--ink-soft); }
+    .colección-text{ color: var(--ink-soft); line-height:1.7; max-width: 68ch; margin: 14px 0 0; }
+
+      /* Lista de joyas */
+      .colección-joyas{
+      list-style:none; margin:0; padding:0;
+        display:grid; grid-template-columns: repeat(5, 1fr); gap: 16px;   
+      }
+
+  /* Sección de sobre el proyecto */
+
+
+  /* Sección de contenido destacado */
+    .contenido-destacado{ display:grid; grid-template-columns: 1.1fr 1fr 1fr; border-bottom: 1px solid var(--line); }
+    .contenido-destacado > div{ padding: 36px; }
+    .contenido-destacado > div + div{ border-left: 1px solid var(--line); }
+    .contenido-destacado h3{ font-size: 1.02rem; font-weight:500; margin-bottom:18px; }
+
+    .listas-nuevas{ list-style:none; margin:0 0 22px; padding:0; display:flex; flex-direction:column; gap:12px; }
+    .listas-nuevas li{ font-size:.9rem; color: var(--ink-soft); padding-left: 16px; position:relative; }
+    .listas-nuevas li::before{ content:""; position:absolute; left:0; top:.55em; width:5px; height:5px; background: var(--clay); border-radius:50%; }
+    .listas-nuevas a{ color: var(--ink-soft); }
+    .listas-nuevas a:hover{ color: var(--ink); text-decoration: underline; }
+
+    .formulario-busqueda{ display:flex; flex-direction:column; gap:10px; }
+    .fila-busqueda{ display:flex; align-items:center; gap:10px; border:1px solid var(--line); padding:9px 12px; background: var(--bg); }
+    .fila-busqueda svg{ width:16px; height:16px; flex-shrink:0; color: var(--ink-soft); }
+    .fila-busqueda input{ border:none; background:none; font: inherit; color: var(--ink); width:100%; }
+    .fila-busqueda input:focus{ outline:none; }
+    input[type="text"]{
+      border:1px solid var(--line); background: var(--bg); color: var(--ink);
+      padding:10px 12px; font: inherit; font-size:.86rem;
+    }
+  select{
+    width:100%; border:1px solid var(--line); background: var(--bg);
+    padding: 10px 12px; font-family:inherit; font-size:.86rem; color: var(--ink);
+    appearance:none; -webkit-appearance:none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235c5041'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position: right 12px center;
+  }
+  .formulario-busqueda .btn{ margin-top:6px; justify-content:center; }
 
   
