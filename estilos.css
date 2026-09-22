@@ -24,6 +24,19 @@ nav a 	{
 		 color: white;
 		  text-decoration: none;
 		}
+:root{
+  --bg: #f1ead9;
+  --panel: #faf6ec;
+  --ink: #2c2418;
+  --ink-soft: #5c5041;
+  --line: #cabfa2;
+  --line-soft: #ddd4bb;
+  --bronze: #8a6a3c;
+  --bronze-dark: #6d5330;
+  --sage: #6f7a5e;
+  --clay: #a15c3f;
+}
+
 .btn-buscador {
     width: 42px;
     height: 42px;
