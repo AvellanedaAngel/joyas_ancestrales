@@ -108,10 +108,12 @@ nav a 	{
     max-width: 15ch;
   }
   .presentación-descriptiva p.desc{ color: var(--ink-soft); max-width: 42ch; line-height:1.6; font-size:.95rem; }
-  .dots{
+  .puntos{
     position:absolute; bottom:16px; left:0; right:0;
     display:flex; justify-content:center; gap:8px;
   }
   
-  .dots span{ width:7px; height:7px; border-radius:50%; background: var(--line); }
-  .dots span.active{ background: var(--bronze); }
+  .puntos span{ width:7px; height:7px; border-radius:50%; background: var(--line); }
+  .puntos span.active{ background: var(--bronze); }
+
+  
