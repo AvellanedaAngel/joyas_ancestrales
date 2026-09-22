@@ -1,11 +1,12 @@
-body {
+/* Body */
+ body {
             font-family: Arial, sans-serif;
             margin: 0;
             background-color: #f4f7fb;
             color: #333;
         }
-
-header {
+/* Header */
+  header {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -17,25 +18,25 @@ header {
             margin: 20px auto 0 auto;
             border-radius: 10px 10px 0 0;
         }
-nav		{ 
+  nav		{ 
 			display:flex; align-items:center; gap: 28px; 
 			}
-nav a 	{
+  nav a 	{
 		 color: white;
 		  text-decoration: none;
 		}
-:root{
-  --bg: #f1ead9;
-  --panel: #faf6ec;
-  --ink: #2c2418;
-  --ink-soft: #5c5041;
-  --line: #cabfa2;
-  --line-soft: #ddd4bb;
-  --bronze: #8a6a3c;
-  --bronze-dark: #6d5330;
-  --sage: #6f7a5e;
-  --clay: #a15c3f;
-}
+  :root{
+    --bg: #f1ead9;
+    --panel: #faf6ec;
+    --ink: #2c2418;
+    --ink-soft: #5c5041;
+    --line: #cabfa2;
+    --line-soft: #ddd4bb;
+    --bronze: #8a6a3c;
+    --bronze-dark: #6d5330;
+    --sage: #6f7a5e;
+    --clay: #a15c3f;
+  }
 
 .btn-buscador {
     width: 42px;
@@ -166,6 +167,14 @@ nav a 	{
       border:1px solid var(--line); background: var(--bg); color: var(--ink);
       padding:10px 12px; font: inherit; font-size:.86rem;
     }
+  .colección, .contenido-destacado{
+    max-width: 1180px;
+    margin: 0 auto;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    background: var(--panel);
+  }
+
   select{
     width:100%; border:1px solid var(--line); background: var(--bg);
     padding: 10px 12px; font-family:inherit; font-size:.86rem; color: var(--ink);
@@ -174,5 +183,32 @@ nav a 	{
     background-repeat:no-repeat; background-position: right 12px center;
   }
   .formulario-busqueda .btn{ margin-top:6px; justify-content:center; }
+
+  /* Footer */
+    footer{ display:flex; align-items:center; justify-content:space-between; padding: 22px 40px; flex-wrap:wrap; gap:16px; }
+    .socials{ display:flex; gap:12px; }
+    .socials a{ width:34px; height:34px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; color: var(--ink); }
+    .socials svg{ width:15px; height:15px; }
+    /* Texto legal y de copyright del pie de página */
+    footer .copy{
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: .78rem;
+    }
+    nav[aria-label="Legal"]{ display:flex; gap:18px; font-size:.78rem; }
+    nav[aria-label="Legal"] a{ color: var(--ink-soft); }
+    nav[aria-label="Legal"] a:hover{ color: var(--ink); }
+     .presentación-slides{ grid-template-columns: 1fr; }
+      .presentación-visual{ border-right:none; border-bottom:1px solid var(--line-soft); }
+      .colección-joyas{ grid-template-columns: repeat(2,1fr); }
+      .contenido-destacado{ grid-template-columns: 1fr; }
+      .contenido-destacado > div + div{ border-left:none; border-top:1px solid var(--line); }
+
+  /* Responsive */  
+  @media (max-width: 980px){
+    nav[aria-label="Principal"]{ display:none; }
+
+    footer{ flex-direction:column; align-items:flex-start; }
+  }
 
   
