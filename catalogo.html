@@ -28,6 +28,28 @@
         </header>
 
         <main id="contenido-principal">
+
+                <form class="formulario-busqueda filtros" id="formulario-filtro">
+                <label class="sr-only" for="f-texto">Buscar por nombre</label>
+                <input type="text" id="f-texto" placeholder="Buscar por nombre...">
+
+                <label class="sr-only" for="f-tipo">Tipo de pieza</label>
+                <select id="f-tipo"></select>
+
+                <label class="sr-only" for="f-material">Material</label>
+                <select id="f-material"></select>
+
+                <label class="sr-only" for="f-procedencia">Procedencia</label>
+                <select id="f-procedencia"></select>
+
+                <button type="submit" class="btn">Aplicar filtros</button>
+            </form>
+
+                 <ul class="catalogo-cuadro" id="catalogo-cuadro">
+                    <!-- Tarjetas generadas dinámicamente en catalogo.js -->
+                </ul>
+                <p class="catalogo-vacío" id="catalog-vacío">No se encontraron piezas con esos filtros.</p>
+            </section>
             <!-- Contenido generado dinámicamente en index.js -->
         </main>
 
