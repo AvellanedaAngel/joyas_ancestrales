@@ -212,9 +212,13 @@
   }    
   /* Responsive */  
   @media (max-width: 980px){
-    nav[aria-label="Principal"]{ display:none; }
-
-    footer{ flex-direction:column; align-items:flex-start; }
-  }
+  .presentación-slides{ grid-template-columns: 1fr; }
+  .presentación-visual{ border-right:none; border-bottom:1px solid var(--line-soft); }
+  .colección-joyas{ grid-template-columns: repeat(2,1fr); }
+  .contenido-destacado{ grid-template-columns: 1fr; }
+  .contenido-destacado > div + div{ border-left:none; border-top:1px solid var(--line); }
+  nav[aria-label="Principal"]{ display:none; }
+  footer{ flex-direction:column; align-items:flex-start; }
+}
 
   
