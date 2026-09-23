@@ -71,7 +71,7 @@
 
 /* Sección de presentación */
 
-  .presentacion{ border-bottom: 1px solid var(--line); position: relative; }
+  .presentación{ border-bottom: 1px solid var(--line); position: relative; }
   .slogan{
     font-size: .8rem; font-family: "Work Sans", sans-serif; font-weight: 600;
     letter-spacing: .04em; color: var(--sage); text-transform: uppercase;
@@ -190,7 +190,7 @@
     .socials a{ width:34px; height:34px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; color: var(--ink); }
     .socials svg{ width:15px; height:15px; }
     /* Texto legal y de copyright del pie de página */
-    footer .copy{
+    footer .licencia{
       margin: 0;
       color: var(--ink-soft);
       font-size: .78rem;
