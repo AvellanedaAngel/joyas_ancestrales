@@ -204,6 +204,12 @@
       .contenido-destacado{ grid-template-columns: 1fr; }
       .contenido-destacado > div + div{ border-left:none; border-top:1px solid var(--line); }
 
+  /* Accesibilidad  */
+  .sr-only{
+    position:absolute; width:1px; height:1px;
+    padding:0; margin:-1px; overflow:hidden;
+    clip: rect(0,0,0,0); white-space:nowrap; border:0;
+  }    
   /* Responsive */  
   @media (max-width: 980px){
     nav[aria-label="Principal"]{ display:none; }
