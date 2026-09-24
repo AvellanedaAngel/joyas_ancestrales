@@ -170,12 +170,16 @@
     .filtros input[type="text"]{ flex: 1 1 200px; }
     .filtros select{ flex: 1 1 160px; width:auto; }
     .filtros .btn{ margin-top:0; }
+    .catalogo-herramientas{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom: 22px; }
+    .catalogo-herramientas h1{ font-size:1.3rem; font-weight:500; }
     .catalogo-vacío{ display:none; color: var(--ink-soft); font-size:.9rem; padding: 10px 0 0; }
     .catalogo-cuadro{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     input[type="text"]{
       border:1px solid var(--line); background: var(--bg); color: var(--ink);
       padding:10px 12px; font: inherit; font-size:.86rem;
     }
+    .btn-limpiar{ font-size:.78rem; color: var(--ink-soft); border:1px solid var(--line); background:transparent; padding:7px 14px; }
+    .btn-limpiar:hover{ border-color: var(--ink); color: var(--ink); }
   .colección, .contenido-destacado{
     max-width: 1180px;
     margin: 0 auto;
