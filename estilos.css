@@ -222,7 +222,7 @@
   .contenido-destacado{ display:grid; grid-template-columns: 1.1fr 1fr 1fr; border-bottom: 1px solid var(--line); }
   .contenido-destacado > div{ padding: 36px; }
   .contenido-destacado > div + div{ border-left: 1px solid var(--line); }
-  .catalog-cuadro{ grid-template-columns: repeat(2,1fr); }
+  .catalogo-cuadro{ grid-template-columns: repeat(2,1fr); }
   nav[aria-label="Principal"]{ display:none; }
   footer{ flex-direction:column; align-items:flex-start; }
 }
