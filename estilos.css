@@ -1,228 +1,637 @@
-/* Body */
- body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f7fb;
-            color: #333;
-        }
-/* Header */
-  header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #C0C0C0;
-            color: white;
-            padding: 20px 40px;
-            border-bottom: 4px solid #666666;
-            width: 100%;
-            box-sizing: border-box;
-            margin: 0;
-        }
-  nav		{ 
-			display:flex; align-items:center; gap: 28px; 
-			}
-  nav a 	{
-		 color: white;
-		  text-decoration: none;
-		}
-  :root{
-    --bg: #f1ead9;
-    --panel: #faf6ec;
-    --ink: #2c2418;
-    --ink-soft: #5c5041;
-    --line: #cabfa2;
-    --line-soft: #ddd4bb;
-    --bronze: #8a6a3c;
-    --bronze-dark: #6d5330;
-    --sage: #6f7a5e;
-    --clay: #a15c3f;
-  }
+/* =========================================================
+   Biblioteca Virtual de Joyería Ancestral Patagónica
+   Sistema visual: papel de ficha + cuero curtido + plata
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root{
+  /* Paleta */
+  --bg: #efe6d2;          /* cuero / hide curtido */
+  --panel: #f8f2e3;       /* papel de ficha técnica */
+  --panel-alt: #f2e9d6;
+  --ink: #2b2216;         /* tinta */
+  --ink-soft: #6b5c46;
+  --line: #c8b78d;
+  --line-soft: #ddd0ac;
+
+  --clay: #a35c3a;        /* arcilla patagónica — acento cálido, CTA */
+  --clay-dark: #83452a;
+  --sage: #74804f;        /* estepa — metadatos secundarios */
+  --plata: #9aa3a6;       /* plata oxidada — platería */
+  --plata-dark: #5f6668;
+
+  /* compatibilidad con nombres previos */
+  --bronze: var(--clay);
+  --bronze-dark: var(--clay-dark);
+
+  --radius: 3px;
+  --sombra: 0 10px 26px -18px rgba(43,34,22,.45);
+}
+
+/* ---------------------------------------------------------
+   Base
+   --------------------------------------------------------- */
+*, *::before, *::after{ box-sizing: border-box; }
+
+body {
+  font-family: "Work Sans", Arial, sans-serif;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+img{ max-width: 100%; display: block; }
+
+h1, h2, h3, h4{
+  font-family: 'Fraunces', serif;
+  color: var(--ink);
+  margin: 0 0 .5em;
+  font-weight: 500;
+  line-height: 1.28;
+}
+
+p{ margin: 0 0 1em; }
+
+a{ color: inherit; }
+
+::selection{ background: var(--clay); color: var(--panel); }
+
+:focus-visible{
+  outline: 2px solid var(--clay-dark);
+  outline-offset: 3px;
+}
+
+/* Botones */
+.btn, a.btn, button.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  font: 600 .86rem/1 "Work Sans", sans-serif;
+  color: var(--panel);
+  background: var(--clay);
+  border: 1px solid var(--clay);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:hover, .btn:focus-visible{
+  background: var(--clay-dark);
+  border-color: var(--clay-dark);
+}
+.btn.ghost{
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.btn.ghost:hover, .btn.ghost:focus-visible{
+  background: transparent;
+  color: var(--clay-dark);
+  border-color: var(--clay-dark);
+}
+
+
+.vitrina, .presentación-visual, .colección-joyas > li, .catalogo-cuadro > li{
+  position: relative;
+}
+.vitrina::before, .vitrina::after,
+.colección-joyas > li::before, .catalogo-cuadro > li::before{
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-top: 1.5px solid var(--plata-dark);
+  border-left: 1.5px solid var(--plata-dark);
+  top: 8px; left: 8px;
+  opacity: 0;
+  transition: opacity .18s ease;
+  pointer-events: none;
+}
+.colección-joyas > li:hover::before, .colección-joyas > li:focus-within::before,
+.catalogo-cuadro > li:hover::before, .catalogo-cuadro > li:focus-within::before{
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   Header
+   --------------------------------------------------------- */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background-color: var(--panel);
+  color: var(--ink);
+  padding: 18px 40px;
+  border-bottom: 2px solid var(--plata);
+  width: 100%;
+  max-width: 1180px;
+  box-sizing: border-box;
+  margin: 0;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+nav a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: .92rem;
+  font-weight: 500;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+nav a:hover, nav a:focus-visible{
+  color: var(--clay-dark);
+  border-bottom-color: var(--clay-dark);
+}
+nav[aria-label="Legal"] a{ font-size: .78rem; }
 
 .btn-buscador {
-    width: 42px;
-    height: 42px;
-    border: none;
-    background: transparent;
-    color: white;
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 8px;
-    border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color .15s ease, color .15s ease;
 }
 .btn-buscador svg{ width:20px; height:20px; }
-.btn-buscador:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+.btn-buscador:hover, .btn-buscador:focus-visible {
+  background-color: var(--panel-alt);
+  color: var(--clay-dark);
 }
+
 .titulo{
-				font-family:'Fraunces', serif;
-				font-size: 2rem;
-				font-weight:600;
-				}
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--ink);
+}
 .sub {
-			    font-size: 0.72rem;
-				letter-spacing: 0.14em;
-				text-transform: uppercase;
-				color: var(--ink-soft)}
+  font-size: .78rem;
+  letter-spacing: .03em;
+  color: var(--ink-soft);
+}
+
+/* ---------------------------------------------------------
+   Sección de presentación (franja de slogan + carrusel)
+   --------------------------------------------------------- */
+#presentación.presentación{
+  display: block;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  background: var(--panel-alt);
+}
+.slogan{
+  font-size: .95rem;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--sage);
+  padding: 22px 44px;
+  max-width: 46ch;
+}
+#presentación-slides{ position: relative; }
+
+.presentación-slides{
+  display: none;
+  grid-template-columns: 1.05fr 1fr;
+}
+.presentación-slides.activado{ display: grid; }
+
+#presentación-puntos{
+  position: absolute;
+  bottom: 14px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+#presentación-puntos span, .puntos span{
+  width:7px; height:7px; border-radius:50%;
+  background: var(--line);
+}
+#presentación-puntos span.active, #presentación-puntos span.activado,
+.puntos span.active, .puntos span.activado{ background: var(--clay); }
 
 
-/* Sección de presentación */
+#inicio.presentación{
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.presentación-visual{
+  padding: 48px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-right: 1px solid var(--line-soft);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(138,106,60,0.08), transparent 60%),
+    var(--panel);
+}
+.presentación-visual img, .presentación-visual svg{
+  width: min(360px, 100%);
+  height:auto;
+  border: 1px solid var(--line);
+  padding: 10px;
+  background: var(--panel-alt);
+}
+.presentación-descriptiva{
+  padding: 48px 44px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap: 20px;
+}
+.presentación-descriptiva p.eyebrow{
+  margin:0;
+  font-size:.82rem;
+  color: var(--sage);
+  font-weight: 500;
+}
+.presentación-descriptiva h1{
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  line-height: 1.3;
+  font-weight: 500;
+  max-width: 16ch;
+}
+.presentación-descriptiva p.desc{
+  color: var(--ink-soft);
+  max-width: 42ch;
+  line-height:1.65;
+  font-size:.97rem;
+}
+.puntos{
+  position:absolute;
+  bottom:16px;
+  left:0; right:0;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
 
-  .presentación{ border-bottom: 1px solid var(--line); position: relative; }
-  .slogan{
-    font-size: .8rem; font-family: "Work Sans", sans-serif; font-weight: 600;
-    letter-spacing: .04em; color: var(--sage); text-transform: uppercase;
-    padding: 14px 44px 0;
-  }
-  #presentacion-slides{ position: relative; }
-  .presentación-slides{ display:none; grid-template-columns: 1.05fr 1fr; }
-  .presentación-slides.activado{ display:grid; }
-  .presentación-visual{
-    padding: 48px 40px;
-    display:flex; align-items:center; justify-content:center;
-    border-right: 1px solid var(--line-soft);
-    background:
-    radial-gradient(circle at 30% 30%, rgba(138,106,60,0.06), transparent 60%),var(--panel);
-  }
-  .presentación-visual svg{ width: min(220px, 100%); height:auto; }
+/* ---------------------------------------------------------
+   Sección de colección
+   --------------------------------------------------------- */
+.colección{
+  padding: 44px 40px 56px;
+  border-bottom: 1px solid var(--line);
+}
+.colección-header{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom: 28px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.colección-header h2{ font-size: 1.5rem; }
+.colección-header .hint{ font-size:.85rem; color: var(--ink-soft); }
+.colección-text{
+  color: var(--ink-soft);
+  line-height:1.7;
+  max-width: 68ch;
+  margin: 14px 0 0;
+}
 
-  .presentación{
-    display:grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 0;
-    border-bottom: 1px solid var(--line);
-    position: relative;
-  }
-  .presentación-visual{
-    padding: 48px 40px;
-    display:flex; align-items:center; justify-content:center;
-    border-right: 1px solid var(--line-soft);
-    background:
-      radial-gradient(circle at 30% 30%, rgba(138,106,60,0.06), transparent 60%),
-      var(--panel);
-  }
-  .presentación-visual svg{ width: min(340px, 100%); height:auto; }
-  .presentación-descriptiva{
-    padding: 48px 44px;
-    display:flex; flex-direction:column; justify-content:center;
-    gap: 22px;
-  }
-  .presentación-descriptiva p.eyebrow{
-    margin:0; font-size:.78rem; color: var(--sage);
-    letter-spacing:.03em;
-  }
-  .presentación-descriptiva h1{
-    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
-    line-height: 1.35;
-    font-weight: 500;
-    max-width: 15ch;
-  }
-  .presentación-descriptiva p.desc{ color: var(--ink-soft); max-width: 42ch; line-height:1.6; font-size:.95rem; }
-  .puntos{
-    position:absolute; bottom:16px; left:0; right:0;
-    display:flex; justify-content:center; gap:8px;
-  }
-  
-  .puntos span{ width:7px; height:7px; border-radius:50%; background: var(--line); }
-  .puntos span.active{ background: var(--bronze); }
+.colección-joyas{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+.colección-joyas > li{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+.colección-joyas > li:hover, .colección-joyas > li:focus-within{
+  box-shadow: var(--sombra);
+  border-color: var(--plata-dark);
+}
+.colección-joyas img{ width:100%; aspect-ratio: 4/3; object-fit: cover; }
+.colección-joyas h3, .colección-joyas h4{
+  font-size: .96rem;
+  margin: 14px 14px 4px;
+}
+.colección-joyas p{
+  font-size: .82rem;
+  color: var(--ink-soft);
+  margin: 0 14px 14px;
+}
+.colección-joyas a{ text-decoration: none; display: block; }
 
-  /* Sección de colección */
-  
-    .colección{ padding: 40px; border-bottom: 1px solid var(--line); }
-    .colección-header{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom: 26px; gap: 12px; flex-wrap: wrap; }
-    .colección-header h2{ font-size: 1.3rem; font-weight:500; }
-    .colección-header .hint{ font-size:.82rem; color: var(--ink-soft); }
-    .colección-text{ color: var(--ink-soft); line-height:1.7; max-width: 68ch; margin: 14px 0 0; }
+/* ---------------------------------------------------------
+   Sección de sobre el proyecto
+   --------------------------------------------------------- */
+.sobre-proyecto{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 52px 44px;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--panel-alt);
+  border-bottom: 1px solid var(--line);
+}
+.sobre-proyecto h2{ font-size: 1.5rem; margin-bottom: .6em; }
+.section-text{
+  color: var(--ink-soft);
+  line-height:1.75;
+  max-width: 68ch;
+  font-size: .98rem;
+}
 
-      /* Lista de joyas */
-      .colección-joyas{
-      list-style:none; margin:0; padding:0;
-        display:grid; grid-template-columns: repeat(5, 1fr); gap: 16px;   
-      }
+/* ---------------------------------------------------------
+   Sección de contenido destacado
+   --------------------------------------------------------- */
+.contenido-destacado{
+  display:grid;
+  grid-template-columns: 1.1fr 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.contenido-destacado > div{ padding: 36px; }
+.contenido-destacado > div + div{ border-left: 1px solid var(--line); }
+.contenido-destacado h3{
+  font-size: 1.05rem;
+  margin-bottom:18px;
+}
+#contenido-destacado img{
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  padding: 8px;
+  background: var(--bg);
+  margin-bottom: 12px;
+}
+#contenido-destacado p{ color: var(--ink-soft); font-size: .9rem; }
 
-  /* Sección de sobre el proyecto */
+.listas-nuevas{
+  list-style:none;
+  margin:0 0 22px;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.listas-nuevas li{
+  font-size:.9rem;
+  color: var(--ink-soft);
+  padding-left: 16px;
+  position:relative;
+}
+.listas-nuevas li::before{
+  content:"";
+  position:absolute;
+  left:0; top:.55em;
+  width:5px; height:5px;
+  background: var(--clay);
+  border-radius:50%;
+}
+.listas-nuevas a{ color: var(--ink-soft); text-decoration: none; }
+.listas-nuevas a:hover, .listas-nuevas a:focus-visible{
+  color: var(--ink);
+  text-decoration: underline;
+}
 
+.formulario-busqueda{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.fila-busqueda{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--line);
+  padding:9px 12px;
+  background: var(--bg);
+  border-radius: var(--radius);
+}
+.fila-busqueda svg{
+  width:16px; height:16px;
+  flex-shrink:0;
+  color: var(--ink-soft);
+}
+.fila-busqueda input{
+  border:none;
+  background:none;
+  font: inherit;
+  color: var(--ink);
+  width:100%;
+}
+.fila-busqueda input:focus{ outline:none; }
 
-  /* Sección de contenido destacado */
-    .contenido-destacado{ display:grid; grid-template-columns: 1.1fr 1fr 1fr; border-bottom: 1px solid var(--line); }
-    .contenido-destacado > div{ padding: 36px; }
-    .contenido-destacado > div + div{ border-left: 1px solid var(--line); }
-    .contenido-destacado h3{ font-size: 1.02rem; font-weight:500; margin-bottom:18px; }
+.filtros{
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.filtros input[type="text"]{ flex: 1 1 200px; }
+.filtros select{ flex: 1 1 160px; width:auto; }
+.filtros .btn{ margin-top:0; }
 
-    .listas-nuevas{ list-style:none; margin:0 0 22px; padding:0; display:flex; flex-direction:column; gap:12px; }
-    .listas-nuevas li{ font-size:.9rem; color: var(--ink-soft); padding-left: 16px; position:relative; }
-    .listas-nuevas li::before{ content:""; position:absolute; left:0; top:.55em; width:5px; height:5px; background: var(--clay); border-radius:50%; }
-    .listas-nuevas a{ color: var(--ink-soft); }
-    .listas-nuevas a:hover{ color: var(--ink); text-decoration: underline; }
+.catalogo-herramientas{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom: 22px;
+}
+.catalogo-herramientas h1{ font-size:1.5rem; }
 
-    .formulario-busqueda{ display:flex; flex-direction:column; gap:10px; }
-    .fila-busqueda{ display:flex; align-items:center; gap:10px; border:1px solid var(--line); padding:9px 12px; background: var(--bg); }
-    .fila-busqueda svg{ width:16px; height:16px; flex-shrink:0; color: var(--ink-soft); }
-    .fila-busqueda input{ border:none; background:none; font: inherit; color: var(--ink); width:100%; }
-    .fila-busqueda input:focus{ outline:none; }
-    .filtros{
-      flex-direction: row; flex-wrap: wrap; align-items:center;
-      gap: 10px; margin-bottom: 30px;
-    } 
-    .filtros input[type="text"]{ flex: 1 1 200px; }
-    .filtros select{ flex: 1 1 160px; width:auto; }
-    .filtros .btn{ margin-top:0; }
-    .catalogo-vacío{ display:none; color: var(--ink-soft); font-size:.9rem; padding: 10px 0 0; }
-    .catalogo-cuadro{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    input[type="text"]{
-      border:1px solid var(--line); background: var(--bg); color: var(--ink);
-      padding:10px 12px; font: inherit; font-size:.86rem;
-    }
-  .colección, .contenido-destacado{
+.catalogo-vacío{
+  display:none;
+  color: var(--ink-soft);
+  font-size:.9rem;
+  padding: 10px 0 0;
+}
+
+.catalogo-cuadro{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.catalogo-cuadro > li{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+.catalogo-cuadro > li:hover, .catalogo-cuadro > li:focus-within{
+  box-shadow: var(--sombra);
+  border-color: var(--plata-dark);
+}
+.catalogo-cuadro img{ width:100%; aspect-ratio: 4/3; object-fit: cover; }
+.catalogo-cuadro h3, .catalogo-cuadro h4{ font-size: .96rem; margin: 14px 14px 4px; }
+.catalogo-cuadro p{ font-size: .82rem; color: var(--ink-soft); margin: 0 14px 14px; }
+.catalogo-cuadro a{ text-decoration: none; display: block; }
+
+input[type="text"]{
+  border:1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  padding:10px 12px;
+  font: inherit;
+  font-size:.86rem;
+  border-radius: var(--radius);
+}
+input[type="text"]:focus-visible{ outline-color: var(--clay-dark); }
+
+.btn-limpiar{
+  font-size:.78rem;
+  color: var(--ink-soft);
+  border:1px solid var(--line);
+  background:transparent;
+  padding:7px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.btn-limpiar:hover, .btn-limpiar:focus-visible{
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.section, .colección, .contenido-destacado{
+  max-width: 1180px;
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: var(--panel);
+}
+.section{ padding: 44px 40px 56px; }
+
+select{
+  width:100%;
+  border:1px solid var(--line);
+  background: var(--panel);
+  padding: 10px 12px;
+  font-family:inherit;
+  font-size:.86rem;
+  color: var(--ink);
+  appearance:none;
+  -webkit-appearance:none;
+  border-radius: var(--radius);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b5c46'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position: right 12px center;
+}
+.formulario-busqueda .btn{
+  margin-top:6px;
+  justify-content:center;
+}
+
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 22px 40px;
+  flex-wrap:wrap;
+  gap:16px;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 0 0 10px 10px;
+}
+.socials{ display:flex; gap:12px; }
+.socials a{
+  width:34px; height:34px;
+  border:1px solid var(--line);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: var(--ink-soft);
+  transition: border-color .15s ease, color .15s ease;
+}
+.socials a:hover, .socials a:focus-visible{
+  border-color: var(--clay-dark);
+  color: var(--clay-dark);
+}
+.socials svg{ width:15px; height:15px; }
+
+footer .licencia{
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: .78rem;
+}
+nav[aria-label="Legal"]{ display:flex; gap:18px; font-size:.78rem; }
+nav[aria-label="Legal"] a{ color: var(--ink-soft); }
+nav[aria-label="Legal"] a:hover, nav[aria-label="Legal"] a:focus-visible{ color: var(--ink); }
+
+/* ---------------------------------------------------------
+   Accesibilidad
+   --------------------------------------------------------- */
+.sr-only{
+  position:absolute; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip: rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition: none !important; animation: none !important; }
+}
+
+/* ---------------------------------------------------------
+   Responsive
+   --------------------------------------------------------- */
+@media (max-width: 980px){
+  header{ padding: 16px 22px; flex-wrap: wrap; }
+  nav{
+    order: 3;
     width: 100%;
-    box-sizing: border-box;
-    margin: 0;
-    background: var(--panel);
+    gap: 18px;
+    overflow-x: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--line-soft);
   }
-
-  select{
-    width:100%; border:1px solid var(--line); background: var(--bg);
-    padding: 10px 12px; font-family:inherit; font-size:.86rem; color: var(--ink);
-    appearance:none; -webkit-appearance:none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%235c5041'/%3E%3C/svg%3E");
-    background-repeat:no-repeat; background-position: right 12px center;
-  }
-  .formulario-busqueda .btn{ margin-top:6px; justify-content:center; }
-
-  /* Footer */
-    footer{ display:flex; align-items:center; justify-content:space-between; padding: 22px 40px; flex-wrap:wrap; gap:16px; }
-    .socials{ display:flex; gap:12px; }
-    .socials a{ width:34px; height:34px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; color: var(--ink); }
-    .socials svg{ width:15px; height:15px; }
-    /* Texto legal y de copyright del pie de página */
-    footer .licencia{
-      margin: 0;
-      color: var(--ink-soft);
-      font-size: .78rem;
-    }
-    nav[aria-label="Legal"]{ display:flex; gap:18px; font-size:.78rem; }
-    nav[aria-label="Legal"] a{ color: var(--ink-soft); }
-    nav[aria-label="Legal"] a:hover{ color: var(--ink); }
-     
-  /* Accesibilidad  */
-  .sr-only{
-    position:absolute; width:1px; height:1px;
-    padding:0; margin:-1px; overflow:hidden;
-    clip: rect(0,0,0,0); white-space:nowrap; border:0;
-  }    
-  /* Responsive */  
-  @media (max-width: 980px){
   .presentación-slides{ grid-template-columns: 1fr; }
-  .presentación-visual{ border-right:none; border-bottom:1px solid var(--line-soft); }
+  #inicio.presentación{ grid-template-columns: 1fr; }
+  .presentación-visual{
+    border-right:none;
+    border-bottom:1px solid var(--line-soft);
+  }
   .colección-joyas{ grid-template-columns: repeat(2,1fr); }
-  .contenido-destacado{ display:grid; grid-template-columns: 1.1fr 1fr 1fr; border-bottom: 1px solid var(--line); }
-  .contenido-destacado > div{ padding: 36px; }
-  .contenido-destacado > div + div{ border-left: 1px solid var(--line); }
-  .catalog-cuadro{ grid-template-columns: repeat(2,1fr); }
-  nav[aria-label="Principal"]{ display:none; }
+  .contenido-destacado{ grid-template-columns: 1fr; }
+  .contenido-destacado > div + div{ border-left:none; border-top: 1px solid var(--line); }
+  .catalogo-cuadro{ grid-template-columns: repeat(2,1fr); }
   footer{ flex-direction:column; align-items:flex-start; }
 }
-  
+
+@media (max-width: 560px){
+  .colección-joyas, .catalogo-cuadro{ grid-template-columns: 1fr; }
+  header{ margin: 0; border-radius: 0; width: 100%; }
+  .section, .colección, .contenido-destacado, footer{ border-left:none; border-right:none; }
+}
