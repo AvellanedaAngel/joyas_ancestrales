@@ -127,11 +127,15 @@ header {
   background-color: var(--panel);
   color: var(--ink);
   padding: 18px 40px;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
   border-bottom: 2px solid var(--plata);
+  border-radius: 10px 10px 0 0;
   width: 100%;
   max-width: 1180px;
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 auto;
 }
 nav {
   display: flex;
@@ -188,8 +192,12 @@ nav[aria-label="Legal"] a{ font-size: .78rem; }
 /* ---------------------------------------------------------
    Sección de presentación (franja de slogan + carrusel)
    --------------------------------------------------------- */
-#presentación.presentación{
+#presentacion.presentacion{
   display: block;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   position: relative;
   background: var(--panel-alt);
@@ -200,10 +208,10 @@ nav[aria-label="Legal"] a{ font-size: .78rem; }
   font-style: italic;
   font-weight: 500;
   color: var(--sage);
-  padding: 22px 44px;
+  padding: 22px 40px;
   max-width: 46ch;
 }
-#presentación-slides{ position: relative; }
+#presentacion-slides{ position: relative; }
 
 .presentación-slides{
   display: none;
@@ -231,6 +239,10 @@ nav[aria-label="Legal"] a{ font-size: .78rem; }
   display: grid;
   grid-template-columns: 1.05fr 1fr;
   gap: 0;
+  max-width: 1180px;
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   position: relative;
 }
@@ -252,7 +264,7 @@ nav[aria-label="Legal"] a{ font-size: .78rem; }
   background: var(--panel-alt);
 }
 .presentación-descriptiva{
-  padding: 48px 44px;
+  padding: 48px 40px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -346,7 +358,7 @@ nav[aria-label="Legal"] a{ font-size: .78rem; }
 .sobre-proyecto{
   max-width: 1180px;
   margin: 0 auto;
-  padding: 52px 44px;
+  padding: 52px 40px;
   border-left: 1px solid var(--line);
   border-right: 1px solid var(--line);
   background: var(--panel-alt);
@@ -368,7 +380,7 @@ nav[aria-label="Legal"] a{ font-size: .78rem; }
   grid-template-columns: 1.1fr 1fr 1fr;
   border-bottom: 1px solid var(--line);
 }
-.contenido-destacado > div{ padding: 36px; }
+.contenido-destacado > div{ padding: 36px 40px; }
 .contenido-destacado > div + div{ border-left: 1px solid var(--line); }
 .contenido-destacado h3{
   font-size: 1.05rem;
@@ -440,6 +452,19 @@ nav[aria-label="Legal"] a{ font-size: .78rem; }
   width:100%;
 }
 .fila-busqueda input:focus{ outline:none; }
+
+main#contenido-principal{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 40px;
+  box-sizing: border-box;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+main#contenido-principal:empty{
+  padding: 0;
+  border: none;
+}
 
 .filtros{
   flex-direction: row;
@@ -633,5 +658,6 @@ nav[aria-label="Legal"] a:hover, nav[aria-label="Legal"] a:focus-visible{ color:
 @media (max-width: 560px){
   .colección-joyas, .catalogo-cuadro{ grid-template-columns: 1fr; }
   header{ margin: 0; border-radius: 0; width: 100%; }
+  header, #presentacion.presentacion, #inicio.presentación, main#contenido-principal,
   .section, .colección, .contenido-destacado, footer{ border-left:none; border-right:none; }
 }
