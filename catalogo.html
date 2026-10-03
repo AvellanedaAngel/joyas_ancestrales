@@ -16,6 +16,7 @@
             <nav>
                 <a href="index.html">Inicio</a>
                 <a href="catalogo.html">Catálogo</a>
+                <a href="galería.html">Galería</a>
                 <a href="">Sobre el proyecto</a>
                 <a href="">Contacto</a>
             </nav>
@@ -29,33 +30,36 @@
 
         <main id="contenido-principal">
 
-                 <section class="section" aria-labelledby="titulo-catalogo">
+            <section class="section" aria-labelledby="titulo-catalogo">
                 <div class="catalogo-herramientas">
                     <h1 id="titulo-catalogo">Catálogo</h1>
                     <button class="btn-limpiar" type="button" id="btnLimpiar">Limpiar filtros</button>
                 </div>
                 <form class="formulario-busqueda filtros" id="formulario-filtro">
-                <label class="sr-only" for="f-texto">Buscar por nombre</label>
-                <input type="text" id="f-texto" placeholder="Buscar por nombre...">
+                    <label class="sr-only" for="f-texto">Buscar por nombre</label>
+                    <input type="text" id="f-texto" placeholder="Buscar por nombre...">
 
-                <label class="sr-only" for="f-tipo">Tipo de pieza</label>
-                <select id="f-tipo"></select>
+                    <label class="sr-only" for="f-tipo">Tipo de pieza</label>
+                    <select id="f-tipo"></select>
 
-                <label class="sr-only" for="f-material">Material</label>
-                <select id="f-material"></select>
+                    <label class="sr-only" for="f-material">Material</label>
+                    <select id="f-material"></select>
 
-                <label class="sr-only" for="f-procedencia">Procedencia</label>
-                <select id="f-procedencia"></select>
+                    <label class="sr-only" for="f-procedencia">Procedencia</label>
+                    <select id="f-procedencia"></select>
 
-                <button type="submit" class="btn">Aplicar filtros</button>
-            </form>
+                    <button type="submit" class="btn">Aplicar filtros</button>
+                </form>
 
-                 <ul class="catalogo-cuadro" id="catalogo-cuadro">
-                    <!-- Tarjetas generadas dinámicamente en catalogo.js -->
+                <ul class="catalogo-cuadro" id="catalogo-cuadro">
+                    <li><a href="#pieza-1" class="galeria-miniatura"><img src="imagenes/pectoral.jpg" alt="Pectoral de plata y cobre"></a></li>
+                    <li><a href="#pieza-2" class="galeria-miniatura"><img src="imagenes/tupu.jpeg" alt="Tupu de plata"></a></li>
+                    <li><a href="#pieza-3" class="galeria-miniatura"><img src="imagenes/aros_cobre.jpeg" alt="Aros de cobre"></a></li>
+                    <li><a href="#pieza-4" class="galeria-miniatura"><img src="imagenes/aros_plata.jpeg" alt="Aros de plata"></a></li>
                 </ul>
                 <p class="catalogo-vacío" id="catalog-vacío">No se encontraron piezas con esos filtros.</p>
             </section>
-            <!-- Contenido generado dinámicamente en index.js -->
+            
         </main>
 
 
