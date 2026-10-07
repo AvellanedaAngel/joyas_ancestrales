@@ -667,7 +667,6 @@ nav[aria-label="Legal"] a:hover, nav[aria-label="Legal"] a:focus-visible{ color:
 
 @media (max-width: 560px){
   .colección-joyas, .catalogo-cuadro{ grid-template-columns: 1fr; }
-<<<<<<< HEAD
   header{ 
     margin: 0;
     border-radius: 0; 
@@ -678,10 +677,5 @@ nav[aria-label="Legal"] a:hover, nav[aria-label="Legal"] a:focus-visible{ color:
     border-left:none;
     border-right:none;
   }
-=======
-  header{ margin: 0; border-radius: 0; width: 100%; }
-  header, #presentacion.presentacion, #inicio.presentación, main#contenido-principal,
-  .section, .colección, .contenido-destacado, footer{ border-left:none; border-right:none; }
->>>>>>> 5784b435718f196c60dec77a556fcbe459c4ab58
 }
 
